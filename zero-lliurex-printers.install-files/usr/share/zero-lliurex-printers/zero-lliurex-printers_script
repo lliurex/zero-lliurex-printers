@@ -1,0 +1,106 @@
+#!/bin/bash
+
+ACTION="$1"
+
+shift
+
+PACKAGE_LIST=$@
+
+
+case $ACTION in
+
+	download)
+		echo "Nothing to do"
+	;;
+
+	getStatus)
+			
+		#START musescoref
+			if [[ " ${PACKAGE_LIST[*]} " == *" musescoref "* ]]; then
+				if [ -d  '/var/lib/flatpak/app/org.musescore.MuseScore' ]; then
+					echo 0
+				else
+					echo 1
+				fi
+				#statements
+			else
+        		echo "Not found"
+      		fi
+		#END musescoref
+	;;
+
+	preInstall)
+		
+		#START musescoref
+			if [[ " ${PACKAGE_LIST[*]} " == *" musescoref "* ]]; then
+				if ! dpkg -s ca-certificates >/dev/null 2>&1; then
+  					sudo apt-get install --reinstall ca-certificates -y
+				elif lliurex-version -n | grep 21.; then
+					sudo apt-get install --reinstall ca-certificates -y
+				fi
+      		fi
+		#END musescoref
+	;;
+
+	installPackage)
+
+		#START musescoref
+			if [[ " ${PACKAGE_LIST[*]} " == *" musescoref "* ]]; then
+				echo " * * Start Installing Musescore Latest Version from flatpack * * "
+				if flatpak list --app | grep org.musescore.MuseScore; then
+					echo "Installed"
+				else
+					#https://dl.flathub.org/repo/appstream/org.musescore.MuseScore.flatpakref
+					if lliurex-version -n | grep 21.; then
+						flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+					fi
+					flatpak install flathub org.musescore.MuseScore -y
+					var1="Icon=org.musescore.MuseScore"
+					var2="Icon=mscore3"
+					sed -i -e "s/$var1/$var2/g" /var/lib/flatpak/app/org.musescore.MuseScore/current/active/export/share/applications/org.musescore.MuseScore.desktop
+					update-desktop-database
+				fi
+				echo " * * Installed Musescore Latest Version * * "
+			fi
+		#END musescoref
+			
+	;;	
+	
+	postInstall)
+		echo "Do nothing"
+
+
+			
+	;;	
+
+	remove)
+
+		for ix in $PACKAGE_LIST	
+
+		do
+			#START musescoref
+			if [[ " $ix " == *" musescoref "* ]]; then
+				if flatpak list --app | grep org.musescore.MuseScore; then
+					echo "Removing files from Musescore Latest Version from flatpack..."
+					flatpak uninstall org.musescore.MuseScore -y
+					echo " * * Finished Musescore Latest Version from flatpack Uninstall * *  "
+				fi
+			#END musescoref
+			else
+				apt-get remove -y $ix
+
+				TEST=$( dpkg-query -s  $ix 2> /dev/null| grep Status | cut -d " " -f 4 )
+
+				if [ "$TEST" == 'installed' ];then
+
+					exit 1
+
+				fi
+			fi
+		done		
+
+	;;
+
+esac
+
+exit 0

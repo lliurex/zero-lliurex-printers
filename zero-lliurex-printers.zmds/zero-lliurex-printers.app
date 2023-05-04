@@ -1,0 +1,17 @@
+Name=zero-lliurex-musica
+Name[es]=Zero LliureX Musica
+Name[en]=Zero LliureX Music
+Name[qcv]=Zero LliureX Musica
+Name[ca_ES]=Zero LliureX Musica
+Comment=Select programs to install included in LliureX Music Education
+Comment[es]=Selecciona los programas para instalar incluidos en la selección de LliureX Musica
+Comment[qcv]=Selecciona els programes per a instal·lar inclosos en la selecció de LliureX Música
+Comment[ca_ES]=Selecciona els programes per a instal·lar inclosos en la selecció de LliureX Música
+Icon=zero-lliurex-musica
+Groups=*;
+Category=Multimedia
+ScriptPath=zero-lliurex-musica.zmd
+Using=pkexec
+Service=False
+Modal=True
+Locks=zero-lliurex-musica

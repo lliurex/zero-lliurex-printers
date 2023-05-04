@@ -1,0 +1,16 @@
+{
+
+	"type":"mix",
+
+	"pkg_list": [{"name":"ardour","custom_name":"Ardour","custom_icon":"ardour.png","type":"apt"},{"name":"audacity","custom_name":"Audacity Audio editor","custom_icon":"audacity.png","type":"apt"},{"name":"carla","custom_name":"Carla modular audio plugin.","custom_icon":"carla_icon.png","type":"apt"},{"name":"csound","custom_name":"Csound synthesis software.","custom_icon":"csound_icon.png","type":"apt"},{"name":"drumgizmo","custom_name":"Drumgizmo drumkit creation tool.","custom_icon":"drumgizmo_icon.png","type":"apt"},{"name":"fluidsynth","custom_name":"Fluidsynth, real-time software synthesizer.","custom_icon":"fluidsynth_icon.png","type":"apt"},{"name":"guitarix","custom_name":"Guitarix turn your computer into a full blown guitar rig.","custom_icon":"guitarix.png","type":"apt"},{"name":"hydrogen","custom_name":"Hidrogen Drum Machine sequenzer","custom_icon":"hydrogen.png","type":"apt"},{"name":"hydrogen-drumkits","custom_name":"hydrogen-drumkits, free drumkits for Hydrogen.","custom_icon":"hydrogen-drumkits_icon.png","type":"apt"},{"name":"jamin","custom_name":"Jamin, Audio mastering from a mixed down multitrack source with JACK.","custom_icon":"jamin_icon.png","type":"apt"},{"name":"kid3-qt","custom_name":"Kid3-qt, Audio tag editor.","custom_icon":"kid3-qt_icon.png","type":"apt"},{"name":"lilypond","custom_name":"Lilypond, text-based music engraver.","custom_icon":"lilypond_icon.png","type":"apt"},{"name":"lmms","custom_name":"Lmms, Linux Multimedia Studio.","custom_icon":"lmms_icon.png","type":"apt"},{"name":"musescore3","custom_name":"Musescore 3, apt package, write music with an integrated sequencer.","custom_icon":"musescore.png","type":"apt"},{"name":"musescoref","custom_name":"Musescore 3 (LATEST) write music with an integrated sequencer.","custom_icon":"musescore3.png","type":"file"},{"name":"petri-foo","custom_name":"Petri-foo, MIDI controllable audio sampler.","custom_icon":"petri-foo_icon.png","type":"apt"},{"name":"phasex","custom_name":"Phasex, synthesizer module.","custom_icon":"phasex_icon.png","type":"apt"},{"name":"qsynth","custom_name":"Qsynth, GUI Interface for FluidSynth.","custom_icon":"qsynth_icon.png","type":"apt"},{"name":"qtractor","custom_name":"Qtractor is a digital audio workstation","custom_icon":"qtractor.png","type":"apt"},{"name":"rakarrack","custom_name":"Rakarrack, simple and easy guitar effects processor.","custom_icon":"rakarrack_icon.png","type":"apt"},{"name":"rosegarden","custom_name":"Rosegarden, music editor and MIDI/audio sequencer.","custom_icon":"rosegarden_icon.png","type":"apt"},{"name":"sooperlooper","custom_name":"SooperLooper is a realtime software looping sampler","custom_icon":"sooperlooper.png","type":"apt"},{"name":"tuxguitar","custom_name":"TuxGuitar Learn guitar.","custom_icon":"tuxguitar.png","type":"apt"},{"name":"whysynth","custom_name":"Whysynth, soft synth interface.","custom_icon":"whysynth_icon.png","type":"apt"},{"name":"yoshimi","custom_name":"Yoshimi is a powerful synthesizer","custom_icon":"yoshimi.png","type":"apt"}],
+
+	"script": {"name":"/usr/share/zero-lliurex-musica/zero-lliurex-musica_script","remove":true,"download":true,"getStatus":true},
+
+	"zomando":"zero-lliurex-musica",
+
+	"custom_icon_path":"/usr/share/zero-lliurex-musica/",
+
+	"selection_enabled":{"active":true,"all_selected":false}
+
+
+	}
