@@ -16,6 +16,7 @@ case $ACTION in
 	getStatus)
 			
 		#START musescoref
+		;'
 			if [[ " ${PACKAGE_LIST[*]} " == *" musescoref "* ]]; then
 				if [ -d  '/var/lib/flatpak/app/org.musescore.MuseScore' ]; then
 					echo 0
@@ -26,12 +27,14 @@ case $ACTION in
 			else
         		echo "Not found"
       		fi
+      	'
 		#END musescoref
 	;;
 
 	preInstall)
 		
 		#START musescoref
+		;'
 			if [[ " ${PACKAGE_LIST[*]} " == *" musescoref "* ]]; then
 				if ! dpkg -s ca-certificates >/dev/null 2>&1; then
   					sudo apt-get install --reinstall ca-certificates -y
@@ -39,12 +42,14 @@ case $ACTION in
 					sudo apt-get install --reinstall ca-certificates -y
 				fi
       		fi
+      	'
 		#END musescoref
 	;;
 
 	installPackage)
 
 		#START musescoref
+		;'
 			if [[ " ${PACKAGE_LIST[*]} " == *" musescoref "* ]]; then
 				echo " * * Start Installing Musescore Latest Version from flatpack * * "
 				if flatpak list --app | grep org.musescore.MuseScore; then
@@ -62,6 +67,7 @@ case $ACTION in
 				fi
 				echo " * * Installed Musescore Latest Version * * "
 			fi
+		'
 		#END musescoref
 			
 	;;	
@@ -74,6 +80,7 @@ case $ACTION in
 	;;	
 
 	remove)
+		;'
 
 		for ix in $PACKAGE_LIST	
 
@@ -97,7 +104,8 @@ case $ACTION in
 
 				fi
 			fi
-		done		
+		done
+		'		
 
 	;;
 
