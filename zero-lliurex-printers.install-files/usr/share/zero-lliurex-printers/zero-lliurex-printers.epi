@@ -2,9 +2,9 @@
 
 	"type":"mix",
 
-	"pkg_list": [{"name":"ardour","custom_name":"Ardour","custom_icon":"ardour.png","type":"apt"},{"name":"musescoref","custom_name":"Musescore 3 (LATEST) write music with an integrated sequencer.","custom_icon":"musescore3.png","type":"file"}],
+	"pkg_list": [{"name":"pryntcontrol","custom_name":"Olipus: drivers for printers","type":"file"}],
 
-	"script": {"name":"/usr/share/zero-lliurex-printers/zero-lliurex-printers_script","remove":true,"download":true,"getStatus":true},
+	"script": {"name":"/usr/share/zero-lliurex-printers/zero-lliurex-printers_script","download":true,"getStatus":true},
 
 	"zomando":"zero-lliurex-printers",
 
