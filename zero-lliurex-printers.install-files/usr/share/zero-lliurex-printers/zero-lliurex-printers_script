@@ -89,20 +89,13 @@ case $ACTION in
 					echo "Service Active, stop uninstall"
 					exit 1
 				else
-					echo "Service is disable"
+					echo "OLIPLUS Service is disable, removing..."
 					rm /etc/systemd/system/pryntcontrolprint.service
 					rm -R /opt/pryntcontrol
-					apt-get remove wmctrl
-				fi
-				
-				
-				TEST=$( dpkg-query -s  wmctrl 2> /dev/null| grep Status | cut -d " " -f 4 )
-				if [ "$TEST" != 'installed' ];then
+					echo "Service is removed from system."
 					exit 0
-				else
-					exit 1
-
 				fi
+				
 			fi
 		done
 			
