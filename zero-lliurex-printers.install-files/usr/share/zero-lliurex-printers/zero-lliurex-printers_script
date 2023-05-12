@@ -92,7 +92,7 @@ case $ACTION in
 					echo "Service is disable"
 					rm /etc/systemd/system/pryntcontrolprint.service
 					rm -R /opt/pryntcontrol
-					apt-get uninstall wmctrl
+					apt-get remove wmctrl
 				fi
 				
 				
