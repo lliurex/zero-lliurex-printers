@@ -85,6 +85,8 @@ case $ACTION in
 				systemctl stop ${OLIPLUS_SERVICE}
 				systemctl disable ${OLIPLUS_SERVICE}
 				systemctl daemon-reload
+				echo " * * Deleting printer PryntControl * * "
+				lpadmin -x PryntControl
 				if (systemctl -q is-active ${OLIPLUS_SERVICE}); then 
 					echo "Service Active, stop uninstall"
 					exit 1
