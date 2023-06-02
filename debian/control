@@ -6,8 +6,8 @@ Uploaders: Daniel Duran Vecino <daduve@gmail.com>
 Build-Depends: llxsrchelper,debhelper (>= 10), zero-dev, inkscape(>=0.47)
 Standards-Version: 4.1.2
 
-Package: zero-lliurex-printers
+Package: zero-lliurex-oliplus
 Architecture: all
 Depends: zero-center,epi-gtk
-Description: Zero LliureX Printers 
-	Adding shorcut in zero-center to install some printer drivers.
+Description: Zero LliureX Oliplus Printers 
+	Adding shorcut in zero-center to install some Oliplus printer drivers.
