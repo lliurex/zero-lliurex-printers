@@ -2,7 +2,7 @@
 
 	"type":"mix",
 
-	"pkg_list": [{"name":"pryntcontrol","custom_name":"Olipus: drivers for printers","type":"file"}],
+	"pkg_list": [{"name":"pryntcontrol","custom_name":"Olipus: drivers for printers","custom_icon":"oliplus.png","type":"file"}],
 
 	"script": {"name":"/usr/share/zero-lliurex-oliplus/zero-lliurex-oliplus_script","download":true,"remove":true,"getStatus":true},
 
