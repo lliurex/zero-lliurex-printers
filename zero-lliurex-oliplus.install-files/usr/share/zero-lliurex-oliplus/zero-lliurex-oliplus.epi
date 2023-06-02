@@ -4,11 +4,11 @@
 
 	"pkg_list": [{"name":"pryntcontrol","custom_name":"Olipus: drivers for printers","type":"file"}],
 
-	"script": {"name":"/usr/share/zero-lliurex-printers/zero-lliurex-printers_script","download":true,"remove":true,"getStatus":true},
+	"script": {"name":"/usr/share/zero-lliurex-oliplus/zero-lliurex-oliplus_script","download":true,"remove":true,"getStatus":true},
 
-	"zomando":"zero-lliurex-printers",
+	"zomando":"zero-lliurex-oliplus",
 
-	"custom_icon_path":"/usr/share/zero-lliurex-printers/",
+	"custom_icon_path":"/usr/share/zero-lliurex-oliplus/",
 
 	"selection_enabled":{"active":true,"all_selected":false}
 
