@@ -94,8 +94,9 @@ case $ACTION in
 					echo "OLIPLUS Service is disable, removing..."
 					rm /etc/systemd/system/pryntcontrolprint.service
 					rm -R /opt/pryntcontrol
-					lpadmin -x PryntControl
-					echo "Service is removed from system."
+					rm -R /usr/lib/cups/backend/pryntcontrol
+					echo "Service & Backend files are removed from system."
+					echo "Unistall Finished Succesfully"
 					exit 0
 				fi
 				
