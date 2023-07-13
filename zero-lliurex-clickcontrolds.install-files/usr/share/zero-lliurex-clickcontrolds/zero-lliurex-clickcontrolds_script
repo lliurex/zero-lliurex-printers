@@ -1,0 +1,110 @@
+#!/bin/bash
+
+ACTION="$1"
+OLIPLUS_URL=https://www.pryntcontrol.com/download/2560/
+OLIPLUS_ZIP=pryntcontrol.zip
+OLIPLUS_DOWNLOAD_FOLDER=pryntcontrol
+OLIPLUS_SERVICE=pryntcontrolprint.service
+OLIPLUS_FOLDER=/opt/pryntcontrol
+
+shift
+
+PACKAGE_LIST=$@
+
+
+case $ACTION in
+
+	download)
+
+		for ix in $PACKAGE_LIST	
+		do
+			if [[ " $ix " == *" pryntcontrol "* ]];then
+
+				cd /tmp
+
+				if [ -d /tmp/${OLIPLUS_DOWNLOAD_FOLDER} ];then
+					rm -rf /tmp/${OLIPLUS_DOWNLOAD_FOLDER} 
+				fi
+				mkdir /tmp/${OLIPLUS_DOWNLOAD_FOLDER}
+				cd /tmp/${OLIPLUS_DOWNLOAD_FOLDER}
+				wget -O ${OLIPLUS_ZIP} ${OLIPLUS_URL}
+
+				if [ ! -f  ${OLIPLUS_ZIP} ];then
+					exit 1
+				fi 
+			fi
+		done
+	;;
+
+	getStatus)
+
+		for ix in $PACKAGE_LIST	
+		do
+		
+			if [[ " $ix " == *" pryntcontrol "* ]];then
+				if [ -d  '/opt/pryntcontrol' ]; then
+					echo 0
+				else
+					echo 1
+				fi
+			else
+	        	echo "Not found"
+	      	fi
+	    done
+	;;
+
+	installPackage)
+
+		for ix in $PACKAGE_LIST
+		do
+			if [[ " ${PACKAGE_LIST[*]} " == *" pryntcontrol "* ]]; then
+				echo " * * Start Installing pryntcontrol * * "
+				cd /tmp/${OLIPLUS_DOWNLOAD_FOLDER}
+				unzip ${OLIPLUS_ZIP}
+				sh install_ubuntu16_64bits.sh
+
+				rm -rf /tmp/${OLIPLUS_DOWNLOAD_FOLDER}
+				
+				TEST=$( dpkg-query -s  wmctrl 2> /dev/null| grep Status | cut -d " " -f 4 )
+				if [ "$TEST" != 'installed' ];then
+					exit 1
+				fi
+			fi
+		done
+			
+	;;
+
+
+	remove)
+
+		for ix in $PACKAGE_LIST
+		do
+			if [[ " ${PACKAGE_LIST[*]} " == *" pryntcontrol "* ]]; then
+				echo " * * Start Uninstalling pryntcontrol * * "
+				service pryntcontrolprint stop
+				systemctl stop ${OLIPLUS_SERVICE}
+				systemctl disable ${OLIPLUS_SERVICE}
+				systemctl daemon-reload
+				echo " * * Deleting printer PryntControl * * "
+				lpadmin -x PryntControl
+				if (systemctl -q is-active ${OLIPLUS_SERVICE}); then 
+					echo "Service Active, stop uninstall"
+					exit 1
+				else
+					echo "OLIPLUS Service is disable, removing..."
+					rm /etc/systemd/system/pryntcontrolprint.service
+					rm -R /opt/pryntcontrol
+					rm -R /usr/lib/cups/backend/pryntcontrol
+					echo "Service & Backend files are removed from system."
+					echo "Unistall Finished Succesfully"
+					exit 0
+				fi
+				
+			fi
+		done
+			
+	;;	
+
+esac
+
+exit 0

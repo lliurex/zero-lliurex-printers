@@ -1,0 +1,17 @@
+Name=ClickControl Printers
+Name[es]=ClickControl impresoras
+Name[en]=ClickControl Printers
+Name[qcv]=ClickControl impressores
+Name[ca_ES]=ClickControl impressores
+Comment=Drivers selection to several ClickControl printers
+Comment[es]=Selección de Drivers para las impresoras de ClickControl
+Comment[qcv]=Selecció de Drivers per a algunes impressores de ClickControl
+Comment[ca_ES]=Selecció de Drivers per a algunes impressores de ClickControl
+Icon=zero-lliurex-clickcontrolds
+Groups=sudo;admins;teachers
+Category=Support
+ScriptPath=zero-lliurex-clickcontrolds.zmd
+Using=pkexec
+Service=False
+Modal=True
+Locks=zero-lliurex-clickcontrolds

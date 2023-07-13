@@ -1,0 +1,16 @@
+{
+
+	"type":"mix",
+
+	"pkg_list": [{"name":"clickcontrolds","custom_name":"Cliente ClickControl","custom_icon":"clickcontrolds.png","type":"file"}],
+
+	"script": {"name":"/usr/share/zero-lliurex-clickcontrolds/zero-lliurex-clickcontrolds_script","download":true,"remove":true,"getStatus":true},
+
+	"zomando":"zero-lliurex-clickcontrolds",
+
+	"custom_icon_path":"/usr/share/zero-lliurex-clickcontrolds/",
+
+	"selection_enabled":{"active":true,"all_selected":false}
+
+
+	}
