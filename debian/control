@@ -11,3 +11,9 @@ Architecture: all
 Depends: zero-center,epi-gtk
 Description: Zero LliureX Oliplus Printers 
 	Adding shorcut in zero-center to install some Oliplus printer drivers.
+
+Package: zero-lliurex-clickcontrolds
+Architecture: all
+Depends: zero-center,epi-gtk
+Description: Zero LliureX ClickControlds Printers
+        Adding shorcut in zero-center to install some ClickControlds printer drivers.
