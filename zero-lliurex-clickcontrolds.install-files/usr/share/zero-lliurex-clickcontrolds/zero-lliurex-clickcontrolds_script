@@ -1,0 +1,83 @@
+#!/bin/bash
+
+ACTION="$1"
+RUTA_DESCARGA="https://setup.orbys.eu/.linux/"
+RUTA="/clickcontrol"
+WG_="/usr/bin/wget"
+CHX_="/usr/bin/chmod +x"
+SH_="/bin/bash"
+
+shift
+
+PACKAGE_LIST=$@
+
+
+case $ACTION in
+
+	getStatus)
+
+		for ix in $PACKAGE_LIST	
+		do
+		
+			if [[ " $ix " == *" clickcontrolds "* ]];then
+				if [ -d ${RUTA}  ]; then
+					echo 0
+				else
+					echo 1
+				fi
+			else
+	        	echo "Not found"
+	      	fi
+	    done
+	;;
+
+	installPackage)
+
+		for ix in $PACKAGE_LIST
+		do
+			if [[ " ${PACKAGE_LIST[*]} " == *" clickcontrolds "* ]]; then
+				echo " * * Start Installing clickcontrolds * * "
+				PING=$(ping -w1 10.239.3.7)
+				if [ $? -ne 0 ];then
+				  /usr/bin/zenity --width=300 --height=150 --error --text "No se ha podido establecer la conexión desde la red de centro."
+				  exit 4
+				fi
+				cd /tmp
+				$WG_ ${RUTA_DESCARGA}/orbys_linux.sh
+				$CHX_ orbys_linux.sh
+				$SH_ orbys_linux.sh
+				
+				#TEST=$( dpkg-query -s  wmctrl 2> /dev/null| grep Status | cut -d " " -f 4 )
+				#if [ "$TEST" != 'installed' ];then
+				#	exit 1
+				#fi
+			fi
+		done
+			
+	;;
+
+
+	remove)
+
+		for ix in $PACKAGE_LIST
+		do
+			if [[ " ${PACKAGE_LIST[*]} " == *" clickcontrolds "* ]]; then
+				echo " * * Start Installing clickcontrolds * * "
+				PING=$(ping -w1 10.239.3.7)
+				if [ $? -ne 0 ];then
+				  /usr/bin/zenity --width=300 --height=150 --error --text "No se ha podido establecer la conexión desde la red de centro."
+				  exit 4
+				fi
+				cd /tmp
+				$WG_ ${RUTA_DESCARGA}/uninstall.sh
+				$CHX_ uninstall.sh
+				$SH_ uninstall.sh
+				
+			fi
+		done
+			
+	;;	
+
+esac
+
+exit 0
