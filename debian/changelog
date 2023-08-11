@@ -1,3 +1,9 @@
+zero-lliurex-printers (0.9) focal; urgency=medium
+
+  * Delete selection mode in Oliplus printers 
+
+ -- Daniel Duran <daduve@gmail.com>  Fri, 11 Aug 2023 13:37:12 +0200
+
 zero-lliurex-printers (0.8) focal; urgency=medium
 
   * Adding Clickcontrolds 
