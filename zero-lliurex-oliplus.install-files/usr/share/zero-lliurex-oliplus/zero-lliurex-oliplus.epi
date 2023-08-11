@@ -8,9 +8,7 @@
 
 	"zomando":"zero-lliurex-oliplus",
 
-	"custom_icon_path":"/usr/share/zero-lliurex-oliplus/",
-
-	"selection_enabled":{"active":true,"all_selected":false}
+	"custom_icon_path":"/usr/share/zero-lliurex-oliplus/"
 
 
 	}
