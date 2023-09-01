@@ -1,0 +1,19 @@
+Source: zero-lliurex-printers
+Section: x11
+Priority: optional
+Maintainer: Equipo LliureX <lliurex@gva.es>
+Uploaders: Daniel Duran Vecino <daduve@gmail.com>
+Build-Depends: llxsrchelper,debhelper (>= 10), zero-dev, inkscape(>=0.47)
+Standards-Version: 4.1.2
+
+Package: zero-lliurex-oliplus
+Architecture: all
+Depends: zero-center,epi-gtk
+Description: Zero LliureX Oliplus Printers 
+	Adding shorcut in zero-center to install some Oliplus printer drivers.
+
+Package: zero-lliurex-clickcontrolds
+Architecture: all
+Depends: zero-center,epi-gtk
+Description: Zero LliureX ClickControlds Printers
+        Adding shorcut in zero-center to install some ClickControlds printer drivers.
